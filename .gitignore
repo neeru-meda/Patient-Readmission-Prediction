@@ -1,0 +1,14 @@
+# VS Code
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+
+# Large processed datasets
+models/x_train_processed.pkl
+models/x_train_balanced.pkl
+models/x_test_processed.pkl
+
+# Jupyter
+.ipynb_checkpoints/
