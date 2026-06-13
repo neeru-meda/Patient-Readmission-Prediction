@@ -107,6 +107,8 @@ Patient_Readmission_Prediction/
 │   ├── train.py                           # Model training pipeline
 │   └── evaluate.py                        # Model evaluation functions
 ├── dashboard/
+|   ├──.streamlit/                            # Streamlit configuration
+|   |      └── config.toml
 │   └── app.py                             # Streamlit dashboard application
 ├── reports/
 │   └── figures/
@@ -116,10 +118,8 @@ Patient_Readmission_Prediction/
 │       ├── roc_curve.png                  # ROC curve plot
 │       ├── feature_importance.png         # Feature importance plot
 │       └── shap_summary.png               # SHAP summary plot
-├── .streamlit/                            # Streamlit configuration
 ├── .gitignore                             # Git ignore rules
-├── requirements.txt                        # Python dependencies
-└── README.md                              # Project documentation
+└──  requirements.txt                        # Python dependencies
 ```
 
 ## 🔧 Installation Instructions
@@ -298,13 +298,26 @@ The interactive dashboard provides the following functionality:
 
 ## 📸 Dashboard Screenshots
 
-*Note: Screenshots will be added here after deployment*
-
 - **Dashboard Overview**: Main interface with KPIs and insights
+  
+  <img width="2880" height="1538" alt="image" src="https://github.com/user-attachments/assets/c978188e-9d4b-4113-8701-04b69fbe7f6f" />
+
 - **Prediction Interface**: Patient input form and risk assessment
+
+  <img width="2880" height="1542" alt="image" src="https://github.com/user-attachments/assets/34c779a2-31a5-4735-8a41-19f00a7307dc" />
+
 - **Analytics Visualizations**: Data exploration and analysis charts
+
+  <img width="2876" height="1548" alt="image" src="https://github.com/user-attachments/assets/d79dcee2-acaa-403d-801a-f6ac8dc11a7b" />
+
 - **Model Performance**: Evaluation metrics and confusion matrix
+
+  <img width="2880" height="1534" alt="image" src="https://github.com/user-attachments/assets/7e4cbd1d-3ae7-4e86-b20b-652341c2c7a3" />
+
 - **SHAP Explanations**: Feature contribution plots
+
+  <img width="2878" height="1542" alt="image" src="https://github.com/user-attachments/assets/7d50ca2e-32a4-46a8-b9a0-467987ef1e4e" />
+
 
 ## 🔮 Future Enhancements
 
@@ -320,20 +333,12 @@ The interactive dashboard provides the following functionality:
 
 ## 👤 Author Information
 
-**Project Developed by**: [Your Name]
+**Project Developed by**: Neeraja Meda
 
-**GitHub**: [https://github.com/yourusername](https://github.com/yourusername)
+**GitHub**: https://github.com/neeru-meda
 
-**LinkedIn**: [https://linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
+**LinkedIn**: https://www.linkedin.com/in/neeraja-meda-aba31b297
 
-**Email**: your.email@example.com
+**Email**: medaneerajasai@gmail.com
 
-This project was developed as part of a Machine Learning portfolio to demonstrate end-to-end ML pipeline development, from data preprocessing to deployment, with a focus on healthcare applications and explainable AI.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-**Note**: This project is intended for educational and research purposes. Clinical decisions should not be based solely on automated predictions without proper medical supervision and validation.
+If you like this project, consider giving it a star!
