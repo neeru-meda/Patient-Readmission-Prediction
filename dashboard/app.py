@@ -8,8 +8,8 @@ import os
 
 # ─── Page Configuration ───────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Intelligent Healthcare Readmission Analytics",
-    page_icon="🧡",
+    page_title="HealthcareReadmission Analytics",
+    page_icon="⚕️",
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items=None,
