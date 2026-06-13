@@ -1368,23 +1368,53 @@ elif st.session_state.selected_page == "Model Performance":
         memory_icon,
     ), unsafe_allow_html=True)
 
-    # Model comparison table card — text inherited from CSS var
-    st.markdown(
+    # Model comparison table — pure HTML so colours are fully theme-controlled.
+    # st.dataframe() renders with its own internal dark theme that conflicts with
+    # the light card background, making header text invisible. HTML table avoids this.
+    rows = [
+        ("Random Forest",       "89.7%", "87.2%", "84.5%", "85.8%", "0.91"),
+        ("Decision Tree",       "82.4%", "76.8%", "72.1%", "74.4%", "0.84"),
+        ("Logistic Regression", "78.5%", "71.4%", "68.9%", "70.1%", "0.81"),
+    ]
+    headers = ["Classifier Model", "Accuracy", "Precision", "Recall", "F1-Score", "ROC-AUC"]
+
+    th_style = (
+        f"padding:10px 14px;text-align:left;font-size:12px;font-weight:600;"
+        f"color:{c['text_secondary']};text-transform:uppercase;letter-spacing:0.4px;"
+        f"border-bottom:2px solid {c['border']};background:{c['surface_alt']};"
+    )
+    td_style_base = (
+        f"padding:11px 14px;font-size:13px;color:{c['text']};"
+        f"border-bottom:1px solid {c['border']};"
+    )
+    td_first_style = (
+        f"padding:11px 14px;font-size:13px;font-weight:600;color:{c['text']};"
+        f"border-bottom:1px solid {c['border']};"
+    )
+
+    header_html = "".join(f"<th style='{th_style}'>{h}</th>" for h in headers)
+    body_html = ""
+    for i, row in enumerate(rows):
+        # Highlight Random Forest row with a subtle orange tint
+        row_bg = c["orange_subtle"] if i == 0 else "transparent"
+        cells = "".join(
+            f"<td style='{td_first_style if j == 0 else td_style_base}'>{v}</td>"
+            for j, v in enumerate(row)
+        )
+        body_html += f"<tr style='background:{row_bg};'>{cells}</tr>"
+
+    table_html = (
         f'<div style="background:{c["surface"]};border-radius:12px;padding:24px;'
         f'border:1px solid {c["border"]};box-shadow:0 4px 6px -1px rgba(0,0,0,.05);margin-bottom:20px;">'
         f'<h4 style="margin:0 0 16px;font-size:15px;font-weight:600;color:{c["text"]};'
-        f'border-bottom:1px solid {c["divider"]};padding-bottom:10px;">Model Comparison Metrics</h4>',
-        unsafe_allow_html=True,
+        f'border-bottom:1px solid {c["divider"]};padding-bottom:10px;">Model Comparison Metrics</h4>'
+        f'<div style="overflow-x:auto;border-radius:8px;border:1px solid {c["border"]};">'
+        f'<table style="width:100%;border-collapse:collapse;font-family:Inter,sans-serif;">'
+        f'<thead><tr>{header_html}</tr></thead>'
+        f'<tbody>{body_html}</tbody>'
+        f'</table></div></div>'
     )
-    st.dataframe(pd.DataFrame({
-        "Classifier Model": ["Random Forest", "Decision Tree", "Logistic Regression"],
-        "Accuracy":         ["89.7%", "82.4%", "78.5%"],
-        "Precision":        ["87.2%", "76.8%", "71.4%"],
-        "Recall":           ["84.5%", "72.1%", "68.9%"],
-        "F1-Score":         ["85.8%", "74.4%", "70.1%"],
-        "ROC-AUC":          ["0.91",  "0.84",  "0.81"],
-    }), hide_index=True, use_container_width=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown(table_html, unsafe_allow_html=True)
 
     rc1, rc2 = st.columns(2)
 
