@@ -107,7 +107,7 @@ Patient_Readmission_Prediction/
 │   ├── train.py                           # Model training pipeline
 │   └── evaluate.py                        # Model evaluation functions
 ├── dashboard/
-|   ├──.streamlit/                            # Streamlit configuration
+|   ├──.streamlit/                         # Streamlit configuration
 |   |      └── config.toml
 │   └── app.py                             # Streamlit dashboard application
 ├── reports/
@@ -119,7 +119,9 @@ Patient_Readmission_Prediction/
 │       ├── feature_importance.png         # Feature importance plot
 │       └── shap_summary.png               # SHAP summary plot
 ├── .gitignore                             # Git ignore rules
-└──  requirements.txt                        # Python dependencies
+├── .python-version                        # python version
+├──  README.md                             # readme file
+└──  requirements.txt                       # Python dependencies
 ```
 
 ## 🔧 Installation Instructions
