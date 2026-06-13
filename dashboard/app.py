@@ -821,7 +821,7 @@ def render_footer():
         f'<span style="color:#94A3B8;font-size:11px;">SHAP &amp; Platt Scaling</span>'
         f'</div></div>'
         f'<div style="border-top:1px solid #1E293B;padding-top:10px;">'
-        f'<span style="color:#64748B;font-size:10px;">&copy; 2026 Healthcare Analytics Project. All rights reserved.</span>'
+        f'<span style="color:#64748B;font-size:10px;"> 2026 Healthcare Analytics Project. </span>'
         f'</div></div>',
         unsafe_allow_html=True,
     )
